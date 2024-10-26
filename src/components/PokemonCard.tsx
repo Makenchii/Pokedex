@@ -1,25 +1,21 @@
 interface PokemonCardProps {
-	pokemon : {
+	pokemon: {
 		name: string;
-		imgSrc? :string
-		
-	}
-
+		imgSrc?: string; // imgSrc est facultatif
+	};
 }
 
-function PokemonCard({ PokemonCardProps }) {
-	// Récupérer le premier Pokémon de la liste
-
+function PokemonCard({ pokemon }: PokemonCardProps) {
 	return (
 		<figure>
-			{/* Utiliser l'opérateur ternaire pour vérifier si imgSrc est défini */}
+			{/* Utilisation du ternaire pour vérifier si imgSrc est défini */}
 			{pokemon.imgSrc ? (
-				<imgSrc={pokemon.imgSrc} alt={pokemon.name} />
+				<img src={pokemon.imgSrc} alt={pokemon.name} />
 			) : (
 				<p>???</p>
 			)}
 
-			{/* Utiliser pokemon.name pour le texte */}
+			{/* Affichage du nom du Pokémon */}
 			<figcaption>{pokemon.name}</figcaption>
 		</figure>
 	);
